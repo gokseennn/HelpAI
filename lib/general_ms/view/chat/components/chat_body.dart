@@ -138,9 +138,7 @@ class ChatBody extends StatelessWidget {
                               hintText: 'Type your message',
                               suffixIcon: IconButton(
                                   icon: const Icon(Icons.send),
-                                  onPressed: controller
-                                      .showInterstitialAd //controller.addChat
-                                  ),
+                                  onPressed: controller.addChat),
                               border: InputBorder.none)),
                     ),
                   ),
