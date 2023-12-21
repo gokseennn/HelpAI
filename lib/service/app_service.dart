@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:helpai/general_ms/view/chat/chat_screen.dart';
+import 'package:helpai/general_ms/view/home/home_screen.dart';
 import 'package:helpai/service/auth_service.dart';
 import 'package:helpai/user-ms/model/user_model.dart';
 import 'package:helpai/user-ms/view/signin/signin_screen.dart';
@@ -11,7 +11,7 @@ class AppService extends GetxService {
 
   String get initialRoute {
     return AuthService.to.isUserAuth
-        ? ChatScreen.routeName //HomeScreen.routeName
+        ? HomeScreen.routeName //HomeScreen.routeName
         : SigninScreen.routeName;
   }
 

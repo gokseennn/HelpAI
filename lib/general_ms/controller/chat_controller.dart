@@ -14,27 +14,10 @@ class ChatController extends GetxController {
   final AdService adService = Get.find(); // AdService'e erişim
 
   RxDouble opacity = 1.0.obs;
-  RxDouble translateYSiri = 0.0.obs;
-  RxDouble translateYAi = 0.0.obs;
-  RxDouble translateXAi = 0.0.obs;
-  RxDouble aiHeight = 200.0.obs;
-  RxDouble translateChaty = 100.0.obs;
-  double? siriHeight;
-  RxBool isAnimated = false.obs;
   RxBool isWaitGptResponse = false.obs;
   TextEditingController aiChatController = TextEditingController();
   RxList<Message> messages = RxList<Message>([]);
   ScrollController scrollController = ScrollController();
-  void startAnimation() {
-    opacity.value = 0.5;
-    translateYSiri.value = 400.0;
-    translateXAi.value = 0;
-    translateYAi.value = 0.0;
-    aiHeight = 100.0.obs;
-    translateChaty.value = -0;
-    siriHeight = 0;
-    isAnimated.value = true;
-  }
 
   void showInterstitialAd() {
     adService.showInterstitialAd();

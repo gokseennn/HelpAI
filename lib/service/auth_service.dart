@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:helpai/general_ms/view/chat/chat_screen.dart';
+import 'package:helpai/general_ms/view/home/home_screen.dart';
 import 'package:helpai/service/app_service.dart';
 import 'package:helpai/service/storage_service.dart';
 import 'package:helpai/user-ms/view/signin/signin_screen.dart';
@@ -38,7 +38,7 @@ class AuthService extends GetxService {
         StorageService.to.write(key: 'user', value: users.toString());
         Get.back();
 
-        Get.offAllNamed(ChatScreen.routeName);
+        Get.offAllNamed(HomeScreen.routeName);
       }
     } catch (e) {
       Get.back();
