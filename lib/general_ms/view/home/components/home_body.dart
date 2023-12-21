@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:helpai/general_ms/controller/home_controller.dart';
+import 'package:helpai/general_ms/view/chat/chat_screen.dart';
+import 'package:helpai/general_ms/view/home/components/home_category_item.dart';
+import 'package:helpai/general_ms/view/home/components/home_filter.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key, required this.controller});
@@ -8,22 +11,32 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Row(
+        HomeFilter(
+          controller: controller,
+        ),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
-              width: Get.width,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: controller.aiFilterItem.length,
-                itemBuilder: (BuildContext context, int index) {
-                  return Text(controller.aiFilterItem[index]);
-                },
-              ),
+            const Padding(
+              padding: EdgeInsets.all(8),
+              child: Text('Healt'),
+            ),
+            HomeCategoryItem(
+              controller: controller,
             )
           ],
-        )
+        ),
+        Align(
+          alignment: Alignment.topRight,
+          child: IconButton(
+            onPressed: () {
+              Get.toNamed(ChatScreen.routeName);
+            },
+            icon: const Icon(Icons.add),
+          ),
+        ),
       ],
     );
   }
